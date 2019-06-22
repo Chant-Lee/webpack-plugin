@@ -1,7 +1,9 @@
 const path = require('path');
 const MyWebpackPlugin = require('./webpack-plugin/index')
+const MyAddOptionPlugin = require('./webpack-plugin/add-name')
 
 module.exports = {
+  mode: 'development',
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,6 +15,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new MyWebpackPlugin()
+    new MyWebpackPlugin(),
+    
+    new MyAddOptionPlugin({ name: 2222 })
   ]
 };
